@@ -21,7 +21,9 @@ const SocialMediaLinks = () => {
         return (
           <li key={item.id}>
             <a href={item.url}>
-              <i className={`${item.icon} p-3 bg-[#3E5A61] rounded-md`}></i>
+              <i
+                className={`${item.icon} p-3 bg-[#3E5A61] rounded-md text-white`}
+              ></i>
             </a>
           </li>
         );

@@ -4,11 +4,11 @@ import SectionLayout from "../Layouts/SectionLayout";
 import FounderBio from "../FounderBio";
 import ExecutiveTeam from "../ExecutiveTeam";
 import Banner from "../Banner";
-import TextAnimation from "../TextAnimation";
+import TextAnimation from "../Animations/TextAnimation";
 import ScrollAnimation from "react-animate-on-scroll";
 const OurTeam = () => {
   return (
-    <DefaultLayout>
+    <div>
       <SectionLayout className={"flex gap-8 items-center "}>
         <div className="basis-1/2 flex flex-col gap-8  ">
           <h1 className="text-5xl">
@@ -64,7 +64,7 @@ const OurTeam = () => {
         subtitle={`With teams located in the United States, Australia, Philippines, and Singapore, we provide an international perspective plus expertise a in 
         local building codes.`}
       />
-    </DefaultLayout>
+    </div>
   );
 };
 

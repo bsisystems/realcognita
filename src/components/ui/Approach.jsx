@@ -1,8 +1,7 @@
 import React from "react";
-import DefaultLayout from "../Layouts/DefaultLayout";
-import Banner from "../Banner";
-import SectionLayout from "../Layouts/SectionLayout";
-import Expertise from "./Expertise";
+
+import SectionLayout from "./Layouts/SectionLayout";
+
 const Approach = () => {
   return (
     <SectionLayout

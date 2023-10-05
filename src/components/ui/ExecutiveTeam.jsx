@@ -1,5 +1,5 @@
 import React from "react";
-import CardAnimation from "./CardAnimation";
+import CardAnimation from "./Animations/CardAnimation";
 const ExecutiveTeam = () => {
   const members = [
     {
