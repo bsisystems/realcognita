@@ -6,7 +6,7 @@ const Navbar = ({ toggleDarkMode, isDarkMode }) => {
   return (
     <div
       className=" min-h-[10vh] sticky  top-0 z-10 text-gray-800 bg-gray-100 
-    dark:bg-slate-950 dark:text-white  "
+    dark:bg-black dark:text-white shadow-md"
     >
       <div className="flex gap-4 justify-between items-center max-w-7xl md:mx-auto py-4 mx-4  ">
         <img

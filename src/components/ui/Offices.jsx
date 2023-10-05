@@ -50,10 +50,10 @@ const Offices = () => {
       showThumbnails={false}
       showIndicators
       item={itemTemplate}
-      transitionInterval={2000}
+      transitionInterval={4000}
       circular
       autoPlay
-      className="w-64 h-64 "
+      className="6w-64 h-64 "
     />
   );
 };
