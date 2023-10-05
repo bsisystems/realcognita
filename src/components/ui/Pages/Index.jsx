@@ -5,8 +5,8 @@ import ServiceCard from "../ServiceCard";
 import Intro from "../Intro";
 import Clients from "../Clients";
 import CarouselFeedbacks from "../CarouselFeedbacks";
-import OrangeButton from "../OrangeButton";
-
+import ScrollTop from "../ScrollTop";
+import TextAnimation from "../TextAnimation";
 import SectionLayout from "../Layouts/SectionLayout";
 import DefaultLayout from "../Layouts/DefaultLayout";
 import Expertise from "./Expertise";
@@ -15,7 +15,29 @@ import Approach from "./Approach";
 import { ServicesTimeline } from "../ServicesTimeline";
 import OurTeam from "./OurTeam";
 import ContactUs from "../ContactUs";
+
+import {
+  Link,
+  Button,
+  Element,
+  Events,
+  animateScroll as scroll,
+  scrollSpy,
+} from "react-scroll";
+
 export const Index = ({ toggleDarkMode, isDarkMode }) => {
+  const [visible, setVisible] = useState(false);
+  useEffect(() => {
+    const handleScroll = () => {
+      setVisible(window.scrollY > 100); // Adjust the value as needed
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   return (
     <div className={`relative ${isDarkMode && "dark"} `}>
       <Navbar toggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode} />
@@ -47,10 +69,13 @@ export const Index = ({ toggleDarkMode, isDarkMode }) => {
 
         <section id="expertise">
           <SectionLayout className={"flex flex-col gap-8 justify-center"}>
-            <h1 className="text-4xl md:text-4xl font-bold uppercase tracking-wider whitespace-pre-line">
-              {`The Realcognita difference: 
+            <TextAnimation>
+              <h1 className="text-4xl md:text-4xl font-bold uppercase tracking-wider whitespace-pre-line">
+                {`The Realcognita difference: 
               Advanced solutions for next-generation thinkers`}
-            </h1>
+              </h1>
+            </TextAnimation>
+
             <Expertise />
           </SectionLayout>
           <section
@@ -73,17 +98,21 @@ export const Index = ({ toggleDarkMode, isDarkMode }) => {
           <SectionLayout className={"flex flex-col gap-20 justify-center"}>
             <div className="flex md:flex-row flex-col gap-4  items-center">
               <div className=" basis-1/2">
-                <h1 className="font-bold text-5xl tracking-wider">
-                  A seamless extension of your team.
-                </h1>
+                <TextAnimation>
+                  <h1 className="font-bold text-5xl tracking-wider">
+                    A seamless extension of your team.
+                  </h1>
+                </TextAnimation>
               </div>
               <div className="basis-1/2 ">
-                <p className="text-lg  px-[2rem]">
-                  Looking for effective, reliable ways to scale your business
-                  and reduce costs? We offer an outsourced suite of services
-                  that enables you to construct homes faster, better, and more
-                  economically.
-                </p>
+                <TextAnimation>
+                  <p className="text-lg  px-[2rem]">
+                    Looking for effective, reliable ways to scale your business
+                    and reduce costs? We offer an outsourced suite of services
+                    that enables you to construct homes faster, better, and more
+                    economically.
+                  </p>
+                </TextAnimation>
               </div>
             </div>
             <ServicesTimeline />
@@ -115,6 +144,7 @@ export const Index = ({ toggleDarkMode, isDarkMode }) => {
       </DefaultLayout>
       <Footer />
       <ContactUs />
+      <ScrollTop visible={visible} />
     </div>
   );
 };

@@ -1,5 +1,6 @@
 import React from "react";
-
+import ScrollAnimation from "react-animate-on-scroll";
+import CardAnimation from "../CardAnimation";
 const Expertise = () => {
   const expertise = [
     {
@@ -39,18 +40,17 @@ const Expertise = () => {
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
       {expertise.map((item) => {
         return (
-          <div
-            key={item.id}
-            className="px-5 py-7 rounded-xl flex flex-col gap-8   text-center items-center group relative cursor-pointer"
-          >
-            <span class="ease absolute left-0 top-0 h-0 w-0 border-t-2 border-realcognita transition-all duration-500 group-hover:w-full"></span>
-            <span class="ease absolute right-0 top-0 h-0 w-0 border-r-2 border-realcognita transition-all duration-500 group-hover:h-full"></span>
-            <span class="ease absolute bottom-0 right-0 h-0 w-0 border-b-2 border-realcognita transition-all duration-500 group-hover:w-full"></span>
-            <span class="ease absolute bottom-0 left-0 h-0 w-0 border-l-2 border-realcognita transition-all duration-500 group-hover:h-full"></span>
-            <img src={item.image} alt={item.image} className="w-40" />
-            <h1 className="text-xl font-semibold "> {item.title}</h1>
-            <p>{item.subtitle}</p>
-          </div>
+          <CardAnimation key={item.id}>
+            <div className="px-5 py-7 rounded-xl flex flex-col gap-8   text-center items-center group relative cursor-pointer">
+              <span class="ease absolute left-0 top-0 h-0 w-0 border-t-2 border-realcognita transition-all duration-500 group-hover:w-full"></span>
+              <span class="ease absolute right-0 top-0 h-0 w-0 border-r-2 border-realcognita transition-all duration-500 group-hover:h-full"></span>
+              <span class="ease absolute bottom-0 right-0 h-0 w-0 border-b-2 border-realcognita transition-all duration-500 group-hover:w-full"></span>
+              <span class="ease absolute bottom-0 left-0 h-0 w-0 border-l-2 border-realcognita transition-all duration-500 group-hover:h-full"></span>
+              <img src={item.image} alt={item.image} className="w-40" />
+              <h1 className="text-xl font-semibold "> {item.title}</h1>
+              <p>{item.subtitle}</p>
+            </div>
+          </CardAnimation>
         );
       })}
     </div>

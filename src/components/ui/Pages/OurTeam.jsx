@@ -4,6 +4,8 @@ import SectionLayout from "../Layouts/SectionLayout";
 import FounderBio from "../FounderBio";
 import ExecutiveTeam from "../ExecutiveTeam";
 import Banner from "../Banner";
+import TextAnimation from "../TextAnimation";
+import ScrollAnimation from "react-animate-on-scroll";
 const OurTeam = () => {
   return (
     <DefaultLayout>
@@ -29,20 +31,24 @@ const OurTeam = () => {
             to empower visionary builders.
           </p>
         </div>
+
         <div className="basis-1/2 ">
-          <video
-            id="my-video"
-            poster=""
-            controls={false}
-            loop
-            autoPlay
-            muted
-            className="rounded-xl "
-          >
-            <source src="videos/showcase.mp4" type="video/mp4" />
-            <source src="videos/showcase.mp4" type="video/ogg" />
-            Your browser does not support the video tag.
-          </video>
+          <ScrollAnimation animateIn="fadeInRight" animateOut="fadeOutRight">
+            {" "}
+            <video
+              id="my-video"
+              poster=""
+              controls={false}
+              loop
+              autoPlay
+              muted
+              className="rounded-xl "
+            >
+              <source src="videos/showcase.mp4" type="video/mp4" />
+              <source src="videos/showcase.mp4" type="video/ogg" />
+              Your browser does not support the video tag.
+            </video>
+          </ScrollAnimation>
         </div>
       </SectionLayout>
 

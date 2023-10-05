@@ -26,40 +26,6 @@ const Navbar = ({ toggleDarkMode, isDarkMode }) => {
         <i className="pi pi-bars bg-light-sea-green rounded-full p-5 !block md:!hidden lg:!hidden"></i>
 
         <ul className=" gap-10  cursor-pointer hidden md:flex lg:flex  ">
-          {/* <li
-            className={`hover:text-gray-500 ${
-              current_location == "/" && "text-primary-orange "
-            }`}
-          >
-            {" "}
-            <Link to="/">Home</Link>
-          </li> */}
-
-          {/* <li className=" group z-40">
-            <span className="group hover:text-gray-500">
-              About{" "}
-              <i
-                className="pi pi-angle-down group-hover:-rotate-180  transition duration-150
-"
-              ></i>
-            </span>
-            <ul className="hidden group-hover:block z-50 absolute bg-secondary p-7 rounded-3xl w-64   ">
-              <li
-                className={`hover:text-primary-orange ${
-                  current_location == "/about" && "text-primary-orange "
-                }`}
-              >
-                <Link to="/about">Meet Our Team</Link>
-              </li>
-              <li
-                className={`hover:text-primary-orange ${
-                  current_location == "/careers" && "text-primary-orange "
-                }`}
-              >
-                <Link to="/careers">Careers</Link>
-              </li>
-            </ul>
-          </li> */}
           <SnapLink
             activeClass="border-b-2 border-primary-orange text-primary-orange pb-2"
             to="about"
@@ -122,42 +88,7 @@ const Navbar = ({ toggleDarkMode, isDarkMode }) => {
               SERVICES
             </SnapLink>
           </li>
-          {/* <li className=" group z-40">
-            <span className="group hover:text-gray-500">
-              Expertise{" "}
-              <i
-                className="pi pi-angle-down group-hover:-rotate-180  transition duration-150
-"
-              ></i>
-            </span>
-            <ul className="hidden group-hover:block z-50 absolute bg-secondary p-7 rounded-3xl w-64   ">
-              <li
-                className={`hover:text-primary-orange ${
-                  current_location == "/approach" && "text-primary-orange "
-                }`}
-              >
-                <Link to="/approach">Our Approach</Link>
-              </li>
-              <li className="hover:text-teal-200">Services</li>
-            </ul>
-          </li> */}
-          {/* <li>
-            <SnapLink
-              activeClass="border-b-2 border-primary-orange text-primary-orange pb-2"
-              to="archive"
-              spy={true}
-              smooth={true}
-              hashSpy={true}
-              offset={-100}
-              duration={500}
-              isDynamic={true}
-              ignoreCancelEvents={false}
-              spyThrottle={500}
-              className="hover:text-custom loading-underline tracking-widest"
-            >
-              ARCHIVES
-            </SnapLink>
-          </li> */}
+
           <li>
             <SnapLink
               activeClass="border-b-2 border-primary-orange text-primary-orange pb-2"

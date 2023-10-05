@@ -1,5 +1,5 @@
 import React from "react";
-
+import CardAnimation from "./CardAnimation";
 const FounderBio = () => {
   const founders = [
     {
@@ -23,18 +23,17 @@ const FounderBio = () => {
     <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
       {founders.map((founder, item) => {
         return (
-          <div
-            key={founder.id}
-            className="  p-14 flex flex-col gap-4 shadow-[10px_10px_0_0_rgb(65,103,121)] border-realcognita border-2 rounded-xl"
-          >
-            <div>
-              <h1 className="font-bold text-3xl">{founder.name},</h1>
-              <h1 className="font-bold text-3xl">{founder.role}</h1>
+          <CardAnimation key={item.id}>
+            <div className="  p-14 flex flex-col gap-4 shadow-[10px_10px_0_0_rgb(65,103,121)] border-realcognita border-2 rounded-xl">
+              <div>
+                <h1 className="font-bold text-3xl">{founder.name},</h1>
+                <h1 className="font-bold text-3xl">{founder.role}</h1>
+              </div>
+              <p className="whitespace-pre-line tracking-wider font-semibold  leading-6 text-lg">
+                {founder.bio}
+              </p>
             </div>
-            <p className="whitespace-pre-line tracking-wider font-semibold  leading-6 text-lg">
-              {founder.bio}
-            </p>
-          </div>
+          </CardAnimation>
         );
       })}
     </div>

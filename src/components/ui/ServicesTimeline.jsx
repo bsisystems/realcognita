@@ -7,6 +7,7 @@ import Drafting from "./Modals/Drafting";
 import Estimating from "./Modals/Estimating";
 import Rendering from "./Modals/Rendering";
 import Administration from "./Modals/Administration";
+import ScrollAnimation from "react-animate-on-scroll";
 export const ServicesTimeline = () => {
   const services = [
     {
@@ -51,8 +52,19 @@ export const ServicesTimeline = () => {
     );
   };
 
-  const customizedContent = (item) => {
-    return <ServiceCard service={item} />;
+  const customizedContent = (item, index) => {
+    var animation = null;
+    if (index % 2 == 0) {
+      animation = { in: "fadeInRight", out: "fadeOutRight" };
+    } else {
+      animation = { in: "fadeInLeft", out: "fadeOutLeft" };
+    }
+
+    return (
+      <ScrollAnimation animateIn={animation.in}>
+        <ServiceCard service={item} />
+      </ScrollAnimation>
+    );
   };
   return (
     <Timeline
