@@ -54,11 +54,21 @@ const OurTeam = (props) => {
           </div>
         </SectionLayout>
 
-        <SectionLayout className={"flex flex-col gap-10"}>
-          <FounderBio />
-          <h1 className="text-center font-bold text-4xl">Our Executive Team</h1>
-          <ExecutiveTeam />
-        </SectionLayout>
+        <section
+          style={{
+            background: `url('images/renders/render-3.jpg') no-repeat  , rgba(41, 72, 80, 0.8)  `,
+            backgroundBlendMode: "multiply",
+          }}
+          className="!bg-cover !bg-no-repeat !bg-fixed !bg-center"
+        >
+          <SectionLayout className={"flex flex-col gap-10"}>
+            <FounderBio />
+            <h1 className="text-center font-bold text-4xl">
+              Our Executive Team
+            </h1>
+            <ExecutiveTeam />
+          </SectionLayout>
+        </section>
 
         <Banner
           imageURL={"images/collage.jpg"}

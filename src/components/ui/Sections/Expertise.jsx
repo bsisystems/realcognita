@@ -18,10 +18,10 @@ export const Expertise = (props) => {
       </SectionLayout>
       <section
         style={{
-          background: `url('images/renders/render-1.jpg') no-repeat  , rgba(41, 72, 80, 0.8)  `,
+          background: `url('images/renders/render-2.jpg') no-repeat  , rgba(41, 72, 80, 0.8)  `,
           backgroundBlendMode: "multiply",
         }}
-        className="!bg-cover"
+        className="!bg-cover !bg-no-repeat !bg-fixed !bg-center"
       >
         <Approach />
       </section>

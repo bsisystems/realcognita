@@ -12,7 +12,7 @@ const About = (props) => {
         loop
         autoPlay
         muted
-        className=" w-full object-cover brightness-50 h-auto  min-h-[90vh] md:max-h-[90vh]"
+        className=" w-full object-fill brightness-50 h-auto  min-h-[90vh] md:max-h-[90vh]"
       >
         <source src="videos/3d_render.mp4" type="video/mp4" />
         <source src="videos/3d_render.mp4" type="video/ogg" />
