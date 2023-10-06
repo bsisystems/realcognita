@@ -55,11 +55,7 @@ const OurTeam = (props) => {
         </SectionLayout>
 
         <section
-          style={{
-            background: `url('images/renders/render-3.jpg') no-repeat  , rgba(41, 72, 80, 0.8)  `,
-            backgroundBlendMode: "multiply",
-          }}
-          className="!bg-cover !bg-no-repeat !bg-fixed !bg-center"
+          
         >
           <SectionLayout className={"flex flex-col gap-10"}>
             <FounderBio />

@@ -39,7 +39,7 @@ module.exports = {
 
             'light-sea-green': '#03A696',
             'primary-orange': '#dd6838',
-           
+            'lighter-yellow': '#EBB400',
           },
       
        

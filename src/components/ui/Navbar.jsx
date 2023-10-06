@@ -6,13 +6,13 @@ const Navbar = ({ toggleDarkMode, isDarkMode }) => {
   return (
     <div
       className=" min-h-[10vh] sticky  top-0 z-10 text-gray-800 bg-gray-100 
-    dark:bg-realcognita dark:text-white shadow-md"
+    dark:bg-slate-950 dark:text-white shadow-md"
     >
       <div className="flex gap-4 justify-between items-center max-w-7xl md:mx-auto py-4 mx-4  ">
         <img
           src="/images/realcognita_logo.gif"
           alt=""
-          className="cursor-pointer  w-[270px] hover:-translate-y-1"
+          className="cursor-pointer  w-[270px] hover:-translate-y-1  rounded-md "
         />
         <i className="pi pi-bars bg-light-sea-green rounded-full p-5 !block md:!hidden lg:!hidden"></i>
 

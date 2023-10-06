@@ -5,7 +5,7 @@ const DefaultLayout = ({ children }) => {
   return (
     <div
       className="text-gray-800 bg-gray-100 
-  dark:bg-slate-950 dark:text-white"
+  dark:bg-gradient-to-b from-[#020d21] via-[#025158] to-[#020d21] dark:text-white"
     >
       {children}
     </div>
