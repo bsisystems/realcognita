@@ -45,7 +45,7 @@ const CarouselFeedbacks = () => {
               <img
                 src={feedback.image}
                 alt="Description"
-                className=" opacity-0 ease-in duration-[2000ms] h-[550px]  object-cover rounded-l-xl "
+                className=" opacity-0 ease-in duration-[200ms] h-[550px]  object-cover rounded-l-xl "
                 onLoad={(e) => e.target.classList.remove("opacity-0")}
               />
               <div className="absolute top-0 w-full flex justify-evenly divide-x bg-slate-950/60 font-semibold rounded-tl-xl ">
