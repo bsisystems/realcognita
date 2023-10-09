@@ -11,7 +11,11 @@ const OurTeam = (props) => {
     <div {...props}>
       {" "}
       <DefaultLayout>
-        <SectionLayout className={"flex gap-8 items-center "}>
+        <SectionLayout
+          className={
+            "flex flex-col md:flex-row lg:flex-row gap-8 items-center  "
+          }
+        >
           <div className="basis-1/2 flex flex-col gap-8  ">
             <h1 className="text-5xl">
               Meet Our Team: A Seamless Extension of Yours
@@ -54,9 +58,7 @@ const OurTeam = (props) => {
           </div>
         </SectionLayout>
 
-        <section
-          
-        >
+        <section>
           <SectionLayout className={"flex flex-col gap-10"}>
             <FounderBio />
             <h1 className="text-center font-bold text-4xl">

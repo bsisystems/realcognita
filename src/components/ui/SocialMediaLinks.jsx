@@ -16,7 +16,7 @@ const SocialMediaLinks = () => {
     },
   ];
   return (
-    <ul className="flex gap-4 ">
+    <ul className="flex gap-4 flex-wrap ">
       {links.map((item) => {
         return (
           <li key={item.id}>

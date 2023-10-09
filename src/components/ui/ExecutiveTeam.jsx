@@ -30,7 +30,9 @@ const ExecutiveTeam = () => {
           <CardAnimation key={member.id}>
             <div className="flex flex-col gap-1 rounded-xl  py-2.5 px-5 text-center shadow-[10px_10px_0_0_rgb(65,103,121)] border-realcognita border-2 ">
               <h1 className="font-bold text-2xl">{member.name}</h1>
-              <h1 className="font-semibold text-gray-300">{member.role}</h1>
+              <h1 className="font-semibold dark:text-gray-300 ">
+                {member.role}
+              </h1>
             </div>
           </CardAnimation>
         );

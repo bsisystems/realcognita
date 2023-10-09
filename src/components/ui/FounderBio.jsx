@@ -24,7 +24,7 @@ const FounderBio = () => {
       {founders.map((founder, item) => {
         return (
           <CardAnimation key={founder.id}>
-            <div className="  p-14 flex flex-col gap-4 shadow-[10px_10px_0_0_rgb(65,103,121)] border-realcognita border-2 rounded-xl">
+            <div className=" p-5 md:p-14 flex flex-col gap-4 shadow-[10px_10px_0_0_rgb(65,103,121)] border-realcognita border-2 rounded-xl">
               <div>
                 <h1 className="font-bold text-3xl">{founder.name},</h1>
                 <h1 className="font-bold text-3xl">{founder.role}</h1>

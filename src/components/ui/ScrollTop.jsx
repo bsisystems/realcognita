@@ -1,12 +1,5 @@
-import React, { useEffect } from "react";
-import {
-  Link,
-  Button,
-  Element,
-  Events,
-  animateScroll as scroll,
-  scrollSpy,
-} from "react-scroll";
+import React from "react";
+import { animateScroll as scroll } from "react-scroll";
 const ScrollTop = ({ visible }) => {
   const scrollToTop = () => {
     scroll.scrollToTop();

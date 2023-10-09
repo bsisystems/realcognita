@@ -71,7 +71,7 @@ const ContactUs = () => {
         maximizable
       >
         <div className="flex gap-4">
-          <div className="basis-2/5 flex flex-col gap-4 justify-between items-end">
+          <div className="basis-2/5 flex flex-col gap-4 justify-between items-end ">
             {/* <img
               src="images/renders/render-3.jpg"
               alt="image"
@@ -97,19 +97,17 @@ const ContactUs = () => {
               </p>
             </div>
 
-            <div className="">
-              <SocialMediaLinks />
-            </div>
+            {/* <SocialMediaLinks /> */}
           </div>
 
           <form
             onSubmit={handleSubmit(onSubmit)}
             id="form"
-            className="basis-3/5 "
+            className="basis-3/5    "
           >
             <div className="grid grid-cols-2 gap-4 ">
               <div>
-                <label htmlFor="name" className=" block mb-2">
+                <label htmlFor="name" className="  ">
                   Name <span className="text-red-500">*</span>
                 </label>
                 <InputText
@@ -123,7 +121,7 @@ const ContactUs = () => {
                 </small>
               </div>
               <div>
-                <label htmlFor="email" className=" block mb-2">
+                <label htmlFor="email" className=" ">
                   Email <span className="text-red-500">*</span>
                 </label>
                 <InputText
@@ -139,7 +137,7 @@ const ContactUs = () => {
               </div>
 
               <div>
-                <label htmlFor="contact_no" className=" block mb-2">
+                <label htmlFor="contact_no" className="  ">
                   Contact Number <span className="text-red-500">*</span>
                 </label>
                 <PhoneInputWithCountry
@@ -158,7 +156,7 @@ const ContactUs = () => {
               </div>
 
               <div>
-                <label htmlFor="business_name" className=" block mb-2">
+                <label htmlFor="business_name" className="  ">
                   Business Name
                 </label>
                 <InputText
@@ -170,7 +168,7 @@ const ContactUs = () => {
               </div>
 
               <div>
-                <label htmlFor="business_address" className=" block mb-2">
+                <label htmlFor="business_address" className="  ">
                   Business Address
                 </label>
                 <InputText
@@ -181,7 +179,7 @@ const ContactUs = () => {
                 />
               </div>
               <div>
-                <label htmlFor="annual_closings" className=" block mb-2">
+                <label htmlFor="annual_closings" className="  ">
                   Annual Closings
                 </label>
                 <Controller
@@ -203,7 +201,7 @@ const ContactUs = () => {
               </div>
             </div>
             <div className="mt-4">
-              <label htmlFor="message" className=" block mb-2">
+              <label htmlFor="message" className="  ">
                 Message <span className="text-red-500">*</span>
               </label>
               <InputTextarea

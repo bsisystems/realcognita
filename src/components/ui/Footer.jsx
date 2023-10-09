@@ -3,22 +3,15 @@ import NavLinks from "./NavLinks";
 import Offices from "./Offices";
 import OrangeButton from "./OrangeButton";
 import SocialMediaLinks from "./SocialMediaLinks";
-
+import Logo from "./Logo";
 const Footer = () => {
   return (
-    <div
-      className="text-gray-800 bg-gray-100 
-    dark:bg-slate-950 dark:text-white  p-7 flex flex-col shadow-md "
-    >
-      <div className="flex gap-4 items-center justify-between    ">
+    <div className="bg-slate-950 text-white  p-7  shadow-md flex flex-col gap-4">
+      <div className="flex flex-col  md:flex-row lg:flex-row gap-4 items-center justify-between    ">
         <Offices />
         <div className="flex flex-col gap-4  font-semibold items-center text-center ">
-          <img
-            src="images/realcognita_logo.gif"
-            alt="company_logo"
-            className="w-60"
-          />
-          <h2 className=" uppercase text-sm tracking-widest whitespace-pre-line">
+          <Logo />
+          <h2 className=" uppercase text-sm tracking-widest whitespace-normal md:whitespace-pre-line ">
             {` Architectural drafting, estimating, 3D rendering, and administration services
            empowering visionary builders`}
           </h2>
@@ -40,7 +33,7 @@ const Footer = () => {
         <SocialMediaLinks />
       </div>
       <div className="   text-center border-t-[1px] border-gray-400 p-5 w-11/12 mx-auto ">
-        <span className="text-sm font-bold ">Copyright © Realcognita</span>
+        <span className="text-sm ">Copyright © Realcognita</span>
       </div>
     </div>
   );
