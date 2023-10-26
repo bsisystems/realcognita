@@ -17,6 +17,7 @@ const Navbar = ({ toggleDarkMode, isDarkMode }) => {
           <HamburgerMenu />
           <GetStarted />
           <DarkMode toggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode} />
+          <button className="bg-red-500 rounded-md p-2.5">NEW BUTTON</button>
         </div>
       </div>
     </div>
