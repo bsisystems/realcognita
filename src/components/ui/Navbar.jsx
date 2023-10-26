@@ -17,6 +17,7 @@ const Navbar = ({ toggleDarkMode, isDarkMode }) => {
           <HamburgerMenu />
           <GetStarted />
           <DarkMode toggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode} />
+          <button>Added a Feature Branch</button>
         </div>
       </div>
     </div>
