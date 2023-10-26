@@ -18,6 +18,7 @@ const Navbar = ({ toggleDarkMode, isDarkMode }) => {
           <GetStarted />
           <DarkMode toggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode} />
           <button>Added a Feature Branch</button>
+          <button>Added a Feature-2 Branch</button>
         </div>
       </div>
     </div>
