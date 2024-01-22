@@ -15,7 +15,7 @@ export const ServicesTimeline = () => {
       title: "Architectural Drafting",
       image: "Administration Services.svg",
       subtitle:
-        "Skilled architects and drafters are there to support you during any stage of design. ",
+        "Our skilled team of architects and drafters couples extensive knowledge with the industry’s most advanced software to take a project from conceptualization to design to documentation. ",
       modal: <Drafting />,
     },
     {
@@ -23,7 +23,7 @@ export const ServicesTimeline = () => {
       title: "Estimating & Scheduling",
       image: "Estimating & Scheduling.svg",
       subtitle:
-        "Leverage our proprietary estimating system to help you take control of your costs. ",
+        "Our proven proprietary estimating system works with home builders and architects maintaining existing libraries of products, fixtures, and materials or building new libraries from scratch. ",
       modal: <Estimating />,
     },
     {
@@ -31,7 +31,7 @@ export const ServicesTimeline = () => {
       title: "3D Rendering",
       image: "3D Rendering.svg",
       subtitle:
-        "Highly skilled visual artists create next level 3D renderings to bring a project to life. ",
+        "Creating 3D renderings from scratch, using existing 2D drawings, or an existing 3D model; we can make your project come alive and come to life with our state-of-the-art rendering software used by in-house architectural designers and visual artists. ",
       modal: <Rendering />,
     },
     {
@@ -39,7 +39,7 @@ export const ServicesTimeline = () => {
       title: "Administration Services",
       image: "Administration Services.svg",
       subtitle:
-        "Create efficiencies by using our administrative services to ease the burden of back end office tasks.",
+        "As former builders and knowing the building industry as a whole; we understand how easy it is to become bogged down by back-office administration. We’re equipped to take on the entirety (or just a portion) of day-to-day tasks so you and your team can focus on what you do best: designing, constructing, selling and building homes.",
       modal: <Administration />,
     },
   ];
