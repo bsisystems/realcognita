@@ -12,16 +12,16 @@ const ExecutiveTeam = () => {
       name: "Luchie Bury",
       role: "Global Operations, Philippines & Australia",
     },
-    {
-      id: crypto.randomUUID(),
-      name: "Jessica Leising",
-      role: "Marketing & Business Development, United States",
-    },
-    {
-      id: crypto.randomUUID(),
-      name: "Leo Daniel Malenilla",
-      role: "Business Process Outsourcing, Philippines",
-    },
+    // {
+    //   id: crypto.randomUUID(),
+    //   name: "Jessica Leising",
+    //   role: "Marketing & Business Development, United States",
+    // },
+    // {
+    //   id: crypto.randomUUID(),
+    //   name: "Leo Daniel Malenilla",
+    //   role: "Business Process Outsourcing, Philippines",
+    // },
   ];
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

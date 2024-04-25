@@ -30,7 +30,7 @@ const Drafting = () => {
         maximizable
       >
         <div className="m-[5%] flex flex-col gap-8">
-          <div>
+          {/* <div>
             <h1 className="font-bold text-xl">Builders</h1>
             <p className="leading-relaxed text-lg">
               Lot specific plans that adhere to community standards Construction
@@ -49,7 +49,7 @@ const Drafting = () => {
               project. Plan and elevation conversion from 2D to 3DCreation of
               marketing plans and brochures.
             </p>
-          </div>
+          </div> */}
 
           <ul className="list-disc text-xl ml-5">
             <li>Brochure plans (marketing plans)</li>

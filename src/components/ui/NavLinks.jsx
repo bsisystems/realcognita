@@ -76,7 +76,7 @@ const NavLinks = (props) => {
         </SnapLink>
       </li>
 
-      <li>
+      {/* <li>
         <SnapLink
           activeClass="border-b-2 border-primary-orange text-primary-orange pb-2"
           to="insights"
@@ -92,7 +92,7 @@ const NavLinks = (props) => {
         >
           INSIGHTS
         </SnapLink>
-      </li>
+      </li> */}
     </ul>
   );
 };
