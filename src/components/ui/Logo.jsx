@@ -6,7 +6,7 @@ const Logo = () => {
   };
   return (
     <img
-      src="/images/logo/realcognita_white.png"
+      src="images/logo/realcognita_white.png"
       alt="realcognita"
       className="cursor-pointer  w-[150px] md:w-[270px] hover:-translate-y-1  rounded-md "
       onClick={scrollToTop}
