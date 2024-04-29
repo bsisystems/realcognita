@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import { Button } from "primereact/button";
 import { Dialog } from "primereact/dialog";
 import OrangeButton from "../OrangeButton";
+import GetStarted from "../GetStarted";
 
 const Drafting = () => {
   const [visible, setVisible] = useState(false);
   const footerContent = (
     <div>
-      <OrangeButton label={"GET STARTED"} className="w-fit" />
+      <GetStarted />
     </div>
   );
 
