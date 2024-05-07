@@ -1,14 +1,12 @@
-import React from "react";
+import { Button } from "primereact/button";
 
 const OrangeButton = (props) => {
   return (
-    <button
+    <Button
       {...props}
-      className={`bg-primary-orange rounded-lg  py-2 px-7 font-semibold ${props.className}
+      className={`!bg-primary-orange !border-none rounded-lg !text-white  py-2 px-7 font-semibold ${props.className}
   `}
-    >
-      {props.label}
-    </button>
+    />
   );
 };
 

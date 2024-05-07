@@ -8,6 +8,9 @@ import OurTeam from "../OurTeam";
 import ContactUs from "../ContactUs";
 import About from "../Sections/About";
 import { Expertise } from "../Sections/Expertise";
+import { ToastContainer } from "react-toastify";
+
+import "react-toastify/dist/ReactToastify.css";
 
 import Services from "../Sections/Services";
 
@@ -36,6 +39,7 @@ export const Index = ({ toggleDarkMode, isDarkMode }) => {
       <Footer />
       <ContactUs />
       <ScrollTop visible={visible} />
+      <ToastContainer pauseOnFocusLoss={false} />
     </div>
   );
 };

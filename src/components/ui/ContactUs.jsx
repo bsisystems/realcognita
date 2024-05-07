@@ -1,55 +1,86 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Button } from "primereact/button";
 import { Dialog } from "primereact/dialog";
 import OrangeButton from "./OrangeButton";
 import { InputText } from "primereact/inputtext";
-import { Controller, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import PhoneInputWithCountry from "react-phone-number-input/react-hook-form";
 import { InputNumber } from "primereact/inputnumber";
 import { InputTextarea } from "primereact/inputtextarea";
 import "react-phone-number-input/style.css";
-import PhoneInput from "react-phone-number-input";
-import {
-  Link as SnapLink,
-  DirectLink,
-  Element,
-  Events,
-  animateScroll as scroll,
-  scrollSpy,
-  scroller,
-} from "react-scroll";
-import SocialMediaLinks from "./SocialMediaLinks";
+import { sendEmail } from "../../lib/api";
+import { toast } from "react-toastify";
+
 const ContactUs = () => {
   const [visible, setVisible] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const defaultFormValues = {
+    full_name: "",
+    email: "",
+    business_name: "",
+    business_address: "",
+    contact_no: "",
+    message: "",
+    annual_closings: "",
+  };
+
   const {
     register,
     handleSubmit,
     reset,
     control,
+    setError,
     formState: { errors },
   } = useForm({
-    defaultValues: {
-      suggestion: "",
-    },
+    defaultValues: defaultFormValues,
   });
   const footerContent = (
     <div>
       <Button
         label="CLOSE"
-        onClick={() => setVisible(false)}
+        onClick={() => {
+          reset(defaultFormValues);
+          setVisible(false);
+        }}
         className="p-button-text"
       />
       <OrangeButton
         label="SUBMIT"
         type="submit "
         form="form"
-        onClick={() => setVisible(false)}
+        loading={isLoading}
         autoFocus
       />
     </div>
   );
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = async (data) => {
+    try {
+      setErrorMessage("");
+      setIsLoading(true);
+
+      const res = await sendEmail(data);
+
+      toast.success(res.message.success, {
+        position: "top-center",
+      });
+
+      setIsLoading(false);
+      reset(defaultFormValues);
+      setVisible(false);
+    } catch (error) {
+      if (error.errors) {
+        error.errors.forEach((err) => {
+          setError(err.name, { type: "backend", message: err.message });
+        });
+      }
+      setErrorMessage(error.message);
+
+      setIsLoading(false);
+    }
+  };
 
   return (
     <div className="fixed bottom-5 right-5">
@@ -61,16 +92,25 @@ const ContactUs = () => {
       </div>
 
       <Dialog
-        header={false}
+        header={
+          errorMessage && (
+            <div className="flex justify-center w-full">
+              <div className="text-center text-sm text-red-500 p-5 rounded border-red-500 bg-slate-100/5 w-full md:w-1/2">
+                {errorMessage}
+              </div>
+            </div>
+          )
+        }
         footer={footerContent}
         visible={visible}
         onHide={() => setVisible(false)}
-        style={{ width: "60vw" }}
-        breakpoints={{ "960px": "75vw", "641px": "100vw" }}
+        // style={{ width: "60vw" }}
+        // breakpoints={{ "960px": "75vw", "641px": "100vw" }}
+        className="w-[80vw] xl:w-[60vw]"
         dismissableMask
         maximizable
       >
-        <div className="flex gap-4">
+        <div className="flex flex-col lg:flex-row gap-10 lg:gap-4">
           <div className="basis-2/5 flex flex-col gap-4 justify-between items-end ">
             {/* <img
               src="images/renders/render-3.jpg"
@@ -83,12 +123,14 @@ const ContactUs = () => {
               </h1>
               <p className=" tracking-wider ">
                 Operating as a seamless extension of your team, we’ll handle
-                your
-                <span className="underline underline-offset-4 decoration-primary-orange">
-                  {" "}
-                  architectural drafting , estimating, 3D rendering, and
-                  administration work{" "}
-                </span>
+                your{" "}
+                <span className="underline underline-offset-4 decoration-green-500 text-green-500">
+                  architectural drafting, estimating, 3D rendering,
+                </span>{" "}
+                <span className="text-white no-underline">and</span>{" "}
+                <span className="underline underline-offset-4 decoration-green-500 text-green-500">
+                  administration work
+                </span>{" "}
                 so you can focus on selling and building homes. ‍
               </p>
               <p>
@@ -105,19 +147,21 @@ const ContactUs = () => {
             id="form"
             className="basis-3/5    "
           >
-            <div className="grid grid-cols-2 gap-4 ">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 ">
               <div>
-                <label htmlFor="name" className="  ">
+                <label htmlFor="full_name" className="  ">
                   Name <span className="text-red-500">*</span>
                 </label>
                 <InputText
-                  {...register("name", { required: true })}
-                  className={`w-full ${errors.name && "p-invalid"}`}
+                  {...register("full_name", {
+                    required: "This field is required",
+                  })}
+                  className={`w-full ${errors.full_name && "!border-red-500"}`}
                   autoComplete="off"
                   placeholder="Full name"
                 />
-                <small className="p-error">
-                  {errors.name ? errors.name : ""}
+                <small className="text-red-500">
+                  {errors.full_name ? errors.full_name.message : ""}
                 </small>
               </div>
               <div>
@@ -125,14 +169,14 @@ const ContactUs = () => {
                   Email <span className="text-red-500">*</span>
                 </label>
                 <InputText
-                  {...register("email", { required: true })}
-                  className={`w-full ${errors.email && "p-invalid"}`}
+                  {...register("email", { required: "This field is required" })}
+                  className={`w-full ${errors.email && "!border-red-500"}`}
                   autoComplete="off"
                   placeholder="example@youremail.com"
                   type={"email"}
                 />
-                <small className="p-error">
-                  {errors.email ? errors.email : ""}
+                <small className="text-red-500">
+                  {errors.email ? errors.email.message : ""}
                 </small>
               </div>
 
@@ -144,14 +188,16 @@ const ContactUs = () => {
                   id="contact_no"
                   name="contact_no"
                   control={control}
-                  rules={{ required: true }}
+                  rules={{ required: "This field is required" }}
                   defaultCountry="AU"
                   international
-                  className="!bg-[#0E1315]"
+                  className={`!bg-[#0E1315] ${
+                    errors.contact_no && "!!border-red-500"
+                  }`}
                 />
 
-                <small className="p-error">
-                  {errors.contact_no ? errors.contact_no : ""}
+                <small className="text-red-500">
+                  {errors.contact_no ? errors.contact_no.message : ""}
                 </small>
               </div>
 
@@ -161,7 +207,9 @@ const ContactUs = () => {
                 </label>
                 <InputText
                   {...register("business_name")}
-                  className={`w-full ${errors.business_name && "p-invalid"}`}
+                  className={`w-full ${
+                    errors.business_name && "!border-red-500"
+                  }`}
                   autoComplete="off"
                   placeholder="Realcognita"
                 />
@@ -173,7 +221,9 @@ const ContactUs = () => {
                 </label>
                 <InputText
                   {...register("business_address")}
-                  className={`w-full ${errors.business_name && "p-invalid"}`}
+                  className={`w-full ${
+                    errors.business_name && "!border-red-500"
+                  }`}
                   autoComplete="off"
                   placeholder="4210 Walaby Way"
                 />
@@ -182,21 +232,17 @@ const ContactUs = () => {
                 <label htmlFor="annual_closings" className="  ">
                   Annual Closings
                 </label>
-                <Controller
-                  control={control}
-                  name="annual_closings"
-                  render={({ field: { value, onChange } }) => (
-                    <InputNumber
-                      value={value}
-                      onValueChange={onChange}
-                      className={`w-full`}
-                      placeholder="USD"
-                      mode="currency"
-                      currency="USD"
-                      autoComplete="off"
-                      min={0}
-                    />
-                  )}
+                <InputNumber
+                  {...register("annual_closings")}
+                  className={`!w-full ${
+                    errors.annual_closings && "!border-red-500"
+                  }`}
+                  inputClassName="w-full"
+                  placeholder="USD"
+                  mode="currency"
+                  currency="USD"
+                  autoComplete="off"
+                  min={0}
                 />
               </div>
             </div>
@@ -205,12 +251,15 @@ const ContactUs = () => {
                 Message <span className="text-red-500">*</span>
               </label>
               <InputTextarea
-                {...register("message")}
-                className={`w-full ${errors.message && "p-invalid"}`}
+                {...register("message", { required: "This field is required" })}
+                className={`w-full ${errors.message && "!border-red-500"}`}
                 rows={5}
                 cols={30}
                 placeholder="Type your message here..."
               />
+              <small className="text-red-500">
+                {errors.message ? errors.message.message : ""}
+              </small>
             </div>
           </form>
         </div>
