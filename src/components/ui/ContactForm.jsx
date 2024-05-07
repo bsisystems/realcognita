@@ -103,8 +103,8 @@ const ContactForm = ({ visible, setVisible }) => {
         dismissableMask
         maximizable
       >
-        <div className="flex flex-col lg:flex-row gap-10 lg:gap-4">
-          <div className="basis-2/5 flex flex-col gap-4 justify-between items-end ">
+        <div className="flex flex-col lg:flex-row gap-10 lg:gap-8 mx-3">
+          <div className="basis-2/5 flex flex-col gap-4 justify-between items-start ">
             {/* <img
               src="images/renders/render-3.jpg"
               alt="image"
@@ -114,7 +114,7 @@ const ContactForm = ({ visible, setVisible }) => {
               <h1 className="text-xl font-bold tracking-wider">
                 Ready to Scale Your Business While Reducing Costs?
               </h1>
-              <p className=" tracking-wider ">
+              <p className=" tracking-wider text-justify">
                 Operating as a seamless extension of your team, we’ll handle
                 your{" "}
                 <span className="underline underline-offset-4 decoration-green-500 text-green-500">
@@ -126,7 +126,7 @@ const ContactForm = ({ visible, setVisible }) => {
                 </span>{" "}
                 so you can focus on selling and building homes. ‍
               </p>
-              <p>
+              <p className="text-justify">
                 Schedule a complimentary consultation and learn how we can
                 empower faster, better, and more economical home building.
               </p>
