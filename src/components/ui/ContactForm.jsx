@@ -42,6 +42,7 @@ const ContactForm = ({ visible, setVisible }) => {
         label="CLOSE"
         onClick={() => {
           reset(defaultFormValues);
+          setErrorMessage("");
           setVisible(false);
         }}
         className="p-button-text"
