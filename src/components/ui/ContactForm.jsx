@@ -117,11 +117,11 @@ const ContactForm = ({ visible, setVisible }) => {
               <p className=" tracking-wider text-justify">
                 Operating as a seamless extension of your team, we’ll handle
                 your{" "}
-                <span className="underline underline-offset-4 decoration-green-500 text-green-500">
+                <span className="decoration-green-500 text-green-500">
                   architectural drafting, estimating, 3D rendering,
                 </span>{" "}
                 <span className="text-white no-underline">and</span>{" "}
-                <span className="underline underline-offset-4 decoration-green-500 text-green-500">
+                <span className="decoration-green-500 text-green-500">
                   administration work
                 </span>{" "}
                 so you can focus on selling and building homes. ‍
