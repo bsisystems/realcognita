@@ -40,6 +40,7 @@ const ContactForm = ({ visible, setVisible }) => {
     <div>
       <Button
         label="CLOSE"
+        disabled={isLoading}
         onClick={() => {
           reset(defaultFormValues);
           setErrorMessage("");
