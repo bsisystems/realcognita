@@ -49,3 +49,32 @@
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
 }
+
+.react-tel-input .form-control {
+  width: 100%;
+  border-color: #e6e6e8;
+}
+.dark .react-tel-input .form-control {
+  width: 100%;
+  border-color: #3e3e45;
+  color: white;
+}
+
+.react-tel-input .form-control:hover {
+  border-color: rgb(156 163 175);
+}
+.react-tel-input .form-control:focus {
+  border-color: rgb(75 85 99);
+}
+.dark .react-tel-input .form-control:focus {
+  border-color: white;
+}
+
+.react-tel-input .form-control.error, .dark .react-tel-input .form-control.error{
+  border-color: #e11d48;
+}
+
+.react-tel-input .selected-flag:focus::before, .react-tel-input .selected-flag::before, .react-tel-input .selected-flag.open::before {
+  border: none;
+  box-shadow: none;
+}

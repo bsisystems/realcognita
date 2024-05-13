@@ -3,14 +3,16 @@ import { Button } from "primereact/button";
 import { Dialog } from "primereact/dialog";
 import OrangeButton from "./OrangeButton";
 import { InputText } from "primereact/inputtext";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import PhoneInputWithCountry from "react-phone-number-input/react-hook-form";
 import { InputNumber } from "primereact/inputnumber";
 import { InputTextarea } from "primereact/inputtextarea";
 import "react-phone-number-input/style.css";
 import { sendEmail } from "../../lib/api";
 import { toast } from "react-toastify";
-import "react-phone-number-input/style.css";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/bootstrap.css";
+import "../../App.css";
 
 const ContactForm = ({ visible, setVisible }) => {
   const [isLoading, setIsLoading] = useState(false);
@@ -150,6 +152,10 @@ const ContactForm = ({ visible, setVisible }) => {
                 <InputText
                   {...register("full_name", {
                     required: "This field is required",
+                    pattern: {
+                      value: /^([a-zA-Z][\s'.-]{0,1})*[A-Za-z][.]{0,1}$/,
+                      message: "Full Name is not valid",
+                    },
                   })}
                   className={`w-full ${errors.full_name && "!border-red-500"}`}
                   autoComplete="off"
@@ -178,37 +184,30 @@ const ContactForm = ({ visible, setVisible }) => {
               </div>
 
               <div>
-                <label htmlFor="contact_no" className="  ">
-                  Contact Number <span className="text-red-500">*</span>
-                </label>
-                <PhoneInputWithCountry
-                  id="contact_no"
+                <Controller
                   name="contact_no"
                   control={control}
                   rules={{ required: "This field is required" }}
-                  defaultCountry="AU"
-                  international
-                  className={`!bg-[#0E1315] ${
-                    errors.contact_no && "!!border-red-500"
-                  }`}
-                />
-
-                <small className="text-red-500">
-                  {errors.contact_no ? errors.contact_no.message : ""}
-                </small>
-              </div>
-
-              <div>
-                <label htmlFor="business_name" className="  ">
-                  Business Name
-                </label>
-                <InputText
-                  {...register("business_name")}
-                  className={`w-full ${
-                    errors.business_name && "!border-red-500"
-                  }`}
-                  autoComplete="off"
-                  placeholder="Realcognita"
+                  render={({ field }) => (
+                    <div className="group flex flex-col w-full">
+                      <label htmlFor="contact_no">
+                        Contact Number <span className="text-rose-600">*</span>
+                      </label>
+                      <PhoneInput
+                        id="contact_no"
+                        placeholder="Enter phone number"
+                        country="au"
+                        containerClass="mt-6"
+                        inputClass={`h-10 dark:bg-[#19191c] dark:focus:bg-[#19191c] !rounded-lg !border-2 !shadow-none ${
+                          errors.contact_no && "error"
+                        }`}
+                        {...field}
+                      />
+                      <span className="text-rose-600 text-xs mt-1">
+                        {errors.contact_no?.message ?? ""}
+                      </span>
+                    </div>
+                  )}
                 />
               </div>
 
@@ -250,6 +249,7 @@ const ContactForm = ({ visible, setVisible }) => {
               <InputTextarea
                 {...register("message", {
                   required: "This field is required",
+                  maxLength: { value: 255, message: "Max length is 255" },
                 })}
                 className={`w-full ${errors.message && "!border-red-500"}`}
                 rows={5}
