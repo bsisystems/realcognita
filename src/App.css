@@ -51,30 +51,45 @@
 }
 
 .react-tel-input .form-control {
-  width: 100%;
-  border-color: #e6e6e8;
+  width: 100% !important;
+  border-color: #263238 !important;
+  background-color: #0e1315 !important;
+  color: white !important;
+  font-family: 'Poppins'
 }
 .dark .react-tel-input .form-control {
-  width: 100%;
-  border-color: #3e3e45;
-  color: white;
+  width: 100% !important;
+  border-color: #263238 !important;
+  color: white !important;
 }
 
 .react-tel-input .form-control:hover {
-  border-color: rgb(156 163 175);
+  border-color: #2d3e44 !important;
 }
 .react-tel-input .form-control:focus {
-  border-color: rgb(75 85 99);
+  border-color: #9eade6 !important;
 }
 .dark .react-tel-input .form-control:focus {
-  border-color: white;
+  border-color: #9eade6 !important;
 }
 
 .react-tel-input .form-control.error, .dark .react-tel-input .form-control.error{
-  border-color: #e11d48;
+  border-color: #ef4444 !important;
 }
 
 .react-tel-input .selected-flag:focus::before, .react-tel-input .selected-flag::before, .react-tel-input .selected-flag.open::before {
-  border: none;
-  box-shadow: none;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.react-tel-input .flag-dropdown .country-list {
+  background-color: #0e1315 !important;
+  border: 2px solid #263238 !important;
+}
+
+.react-tel-input .flag-dropdown .country-list .country:hover, .react-tel-input .flag-dropdown .country-list .country.highlight {
+ background-color: #1d272a!important;
+}
+.react-tel-input .flag-dropdown .country-list .country .dial-code {
+  color: var(--gray-400);
 }

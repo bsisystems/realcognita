@@ -4,15 +4,12 @@ import { Dialog } from "primereact/dialog";
 import OrangeButton from "./OrangeButton";
 import { InputText } from "primereact/inputtext";
 import { Controller, useForm } from "react-hook-form";
-import PhoneInputWithCountry from "react-phone-number-input/react-hook-form";
 import { InputNumber } from "primereact/inputnumber";
 import { InputTextarea } from "primereact/inputtextarea";
-import "react-phone-number-input/style.css";
 import { sendEmail } from "../../lib/api";
 import { toast } from "react-toastify";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/bootstrap.css";
-import "../../App.css";
 
 const ContactForm = ({ visible, setVisible }) => {
   const [isLoading, setIsLoading] = useState(false);
@@ -44,9 +41,7 @@ const ContactForm = ({ visible, setVisible }) => {
         label="CLOSE"
         disabled={isLoading}
         onClick={() => {
-          reset(defaultFormValues);
-          setErrorMessage("");
-          setVisible(false);
+          resetForm();
         }}
         className="p-button-text"
       />
@@ -59,6 +54,12 @@ const ContactForm = ({ visible, setVisible }) => {
       />
     </div>
   );
+
+  const resetForm = () => {
+    reset(defaultFormValues);
+    setErrorMessage("");
+    setVisible(false);
+  };
 
   const onSubmit = async (data) => {
     try {
@@ -100,7 +101,7 @@ const ContactForm = ({ visible, setVisible }) => {
         }
         footer={footerContent}
         visible={visible}
-        onHide={() => setVisible(false)}
+        onHide={() => resetForm()}
         // style={{ width: "60vw" }}
         // breakpoints={{ "960px": "75vw", "641px": "100vw" }}
         className="w-[80vw] xl:w-[60vw]"
@@ -191,19 +192,18 @@ const ContactForm = ({ visible, setVisible }) => {
                   render={({ field }) => (
                     <div className="group flex flex-col w-full">
                       <label htmlFor="contact_no">
-                        Contact Number <span className="text-rose-600">*</span>
+                        Contact Number <span className="text-red-500">*</span>
                       </label>
                       <PhoneInput
                         id="contact_no"
                         placeholder="Enter phone number"
                         country="au"
-                        containerClass="mt-6"
-                        inputClass={`h-10 dark:bg-[#19191c] dark:focus:bg-[#19191c] !rounded-lg !border-2 !shadow-none ${
+                        inputClass={`h-11 dark:bg-[#19191c] dark:focus:bg-[#19191c] !rounded-lg !border-2 !shadow-none ${
                           errors.contact_no && "error"
                         }`}
                         {...field}
                       />
-                      <span className="text-rose-600 text-xs mt-1">
+                      <span className="text-red-500 text-xs mt-1">
                         {errors.contact_no?.message ?? ""}
                       </span>
                     </div>
