@@ -22,7 +22,7 @@ const ContactForm = ({ visible, setVisible }) => {
     business_address: "",
     contact_no: "",
     message: "",
-    annual_closings: "",
+    annual_closings: 0.0,
   };
 
   const {
@@ -239,20 +239,26 @@ const ContactForm = ({ visible, setVisible }) => {
                 />
               </div>
               <div>
-                <label htmlFor="annual_closings" className="  ">
-                  Annual Closings
-                </label>
-                <InputNumber
-                  {...register("annual_closings")}
-                  className={`!w-full ${
-                    errors.annual_closings && "!border-red-500"
-                  }`}
-                  inputClassName="w-full"
-                  placeholder="USD"
-                  mode="currency"
-                  currency="USD"
-                  autoComplete="off"
-                  min={0}
+                <Controller
+                  name="annual_closings"
+                  control={control}
+                  render={({ field }) => (
+                    <>
+                      <label htmlFor="annual_closings">Annual Closings</label>
+                      <InputNumber
+                        id={field.name}
+                        ref={field.ref}
+                        value={field.value}
+                        onBlur={field.onBlur}
+                        onValueChange={(e) => field.onChange(e)}
+                        mode="currency"
+                        currency="USD"
+                        format
+                        locale="en-US"
+                        className="!w-full"
+                      />
+                    </>
+                  )}
                 />
               </div>
             </div>

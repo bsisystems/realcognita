@@ -1,8 +1,14 @@
 import axios from "./axios";
 
 export const sendEmail = async (data) => {
+  const parsedData = data;
+
+  parsedData.annual_closings = new Intl.NumberFormat("en-US").format(
+    data.annual_closings
+  );
+
   try {
-    const res = await axios.post("/contactform", JSON.stringify(data));
+    const res = await axios.post("/contactform", JSON.stringify(parsedData));
     const result = res.data;
 
     if (result.message.error) {
