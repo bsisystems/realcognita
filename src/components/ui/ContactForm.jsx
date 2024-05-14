@@ -212,6 +212,20 @@ const ContactForm = ({ visible, setVisible }) => {
               </div>
 
               <div>
+                <label htmlFor="business_name" className="  ">
+                  Business Name
+                </label>
+                <InputText
+                  {...register("business_name")}
+                  className={`w-full ${
+                    errors.business_name && "!border-red-500"
+                  }`}
+                  autoComplete="off"
+                  placeholder="Realcognita"
+                />
+              </div>
+
+              <div>
                 <label htmlFor="business_address" className="  ">
                   Business Address
                 </label>
