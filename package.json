@@ -7,6 +7,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "branch-build": "(git checkout -b out || git branch -D out && git checkout -b out) && vite build && del /F index.html && xcopy dist\\* .\\ /s /e /i /Y && rd /s /q @ public src dist node_modules && del /F .eslintrc.json .gitignore .env .env.production components.json custom-image-loader.js jsconfig.json next.config.mjs postcss.config.mjs package-lock.json package.json README.md tailwind.config.js tsconfig.json vite.config.js && git add . && git commit -m \"new build created\"",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "predeploy": "npm run build",
