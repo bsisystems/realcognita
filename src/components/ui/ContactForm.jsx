@@ -189,7 +189,9 @@ const ContactForm = ({ visible, setVisible }) => {
                   name="contact_no"
                   control={control}
                   rules={{ required: "This field is required" }}
-                  render={({ field }) => (
+                  render={({
+                    field: { name, value, onChange, ref, onBlur },
+                  }) => (
                     <div className="group flex flex-col w-full">
                       <label htmlFor="contact_no">
                         Contact Number <span className="text-red-500">*</span>
@@ -201,7 +203,17 @@ const ContactForm = ({ visible, setVisible }) => {
                         inputClass={`h-11 dark:bg-[#19191c] dark:focus:bg-[#19191c] !rounded-lg !border-2 !shadow-none ${
                           errors.contact_no && "error"
                         }`}
-                        {...field}
+                        value={value}
+                        onChange={(value) => {
+                          onChange(value);
+                        }}
+                        onBlur={onBlur}
+                        inputProps={{
+                          autoFocus: false,
+                          countryCodeEditable: false,
+                          name,
+                          ref,
+                        }}
                       />
                       <span className="text-red-500 text-xs mt-1">
                         {errors.contact_no?.message ?? ""}
