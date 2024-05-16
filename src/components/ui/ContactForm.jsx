@@ -155,14 +155,15 @@ const ContactForm = ({ visible, setVisible }) => {
                     required: "This field is required",
                     pattern: {
                       value: /^([a-zA-Z][\s'.-]{0,1})*[A-Za-z][.]{0,1}$/,
-                      message: "Full Name is not valid",
+                      message:
+                        "Name can ONLY contain any of the following characters: dot (.) , dash (-) , apostrophe (')",
                     },
                   })}
                   className={`w-full ${errors.full_name && "!border-red-500"}`}
                   autoComplete="off"
                   placeholder="Full name"
                 />
-                <small className="text-red-500">
+                <small className="text-red-500 tracking-widest">
                   {errors.full_name ? errors.full_name.message : ""}
                 </small>
               </div>
@@ -179,7 +180,7 @@ const ContactForm = ({ visible, setVisible }) => {
                   placeholder="example@youremail.com"
                   type={"email"}
                 />
-                <small className="text-red-500">
+                <small className="text-red-500 tracking-widest">
                   {errors.email ? errors.email.message : ""}
                 </small>
               </div>
@@ -203,7 +204,7 @@ const ContactForm = ({ visible, setVisible }) => {
                         }`}
                         {...field}
                       />
-                      <span className="text-red-500 text-xs mt-1">
+                      <span className="text-red-500 text-xs tracking-widest mt-1">
                         {errors.contact_no?.message ?? ""}
                       </span>
                     </div>
@@ -276,7 +277,7 @@ const ContactForm = ({ visible, setVisible }) => {
                 cols={30}
                 placeholder="Type your message here..."
               />
-              <small className="text-red-500">
+              <small className="text-red-500 tracking-widest">
                 {errors.message ? errors.message.message : ""}
               </small>
             </div>
