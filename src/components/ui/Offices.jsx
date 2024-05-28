@@ -10,8 +10,8 @@ const Offices = () => {
     },
     {
       name: "Philippines",
-      address: `5th Floor Avecshares Center,
-      1132 University Parkway,
+      address: `15F Four/Neo 4th Avenue,
+      cor. 30th and 31st St. Bonifacio Global City,
       Taguig Manila 1634, Philippines`,
       contact_no: "+63 917 519 0137",
     },
