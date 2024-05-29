@@ -8,7 +8,10 @@ export const sendEmail = async (data) => {
   );
 
   try {
-    const res = await axios.post("/contactform", JSON.stringify(parsedData));
+    const res = await axios.post(
+      "/api/contactform",
+      JSON.stringify(parsedData)
+    );
     const result = res.data;
 
     if (result.message.error) {
