@@ -69,7 +69,7 @@ const OurTeam = (props) => {
         </section>
 
         <Banner
-          imageURL={"images/collage.jpg"}
+          imageURL={"images/collage_v2.JPG"}
           title="Global presence, local expertise"
           subtitle={`With teams located in the United States, Australia, Philippines, and Singapore, we provide an international perspective plus expertise a in 
       local building codes.`}
