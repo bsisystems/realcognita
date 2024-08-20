@@ -6,7 +6,7 @@ const Offices = () => {
       name: "US",
       address: `5816 West Plano Pkwy Plano, 
       TX 75093 United States`,
-      contact_no: "(469) 606-1988",
+      contact_no: "+1 469-648-0750",
     },
     {
       name: "Philippines",
@@ -31,7 +31,7 @@ const Offices = () => {
   ];
   const itemTemplate = (item) => {
     return (
-      <div className="flex flex-col gap-2  ">
+      <div className="flex flex-col justify-end gap-2 w-full h-full">
         <h1 className="font-bold text-primary-orange">{item.name}</h1>
         <span className="whitespace-pre-line">{item.address}</span>
         <span>{item.contact_no}</span>
@@ -53,7 +53,17 @@ const Offices = () => {
       transitionInterval={4000}
       circular
       autoPlay
-      className="6w-64 h-64 "
+      pt={{
+        content: {
+          className: "w-64 h-64",
+        },
+        itemWrapper: {
+          className: "flex flex-col h-full justify-between",
+        },
+        indicator: {
+          className: "h-3",
+        },
+      }}
     />
   );
 };
